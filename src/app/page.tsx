@@ -147,7 +147,7 @@ function Card({
     <div
       className={cn(
         "bg-card-background rounded-2xl p-10 border-border border-2 flex justify-start items-start flex-col hover:border-accent/50 transition-colors",
-        className
+        className,
       )}
     >
       {children}
@@ -164,13 +164,13 @@ function ProfilePicture() {
           width={128}
           height={128}
           alt="Profile Picture"
-          className="w-full h-full rounded-full object-cover"
+          className="w-full h-full rounded-lg object-cover"
         />
       </div>
 
       <div className="space-y-2">
         <h1 className="text-4xl font-bold">
-          Martin <span className="text-accent">Dimitrov</span>
+          martin<span className="text-accent">.dimitrov</span>
         </h1>
         <p className="text-foreground/60 text-lg">
           lead engineer, moustache owner
