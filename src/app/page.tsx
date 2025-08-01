@@ -15,161 +15,153 @@ function Link({ children, href }: PropsWithChildren<{ href: string }>) {
   );
 }
 
+function Section({
+  title,
+  children,
+  className,
+}: PropsWithChildren<{ title: string; className?: string }>) {
+  return (
+    <section
+      className={cn(
+        "space-y-4 bg-card-background/30 rounded-lg p-6 border border-border/20",
+        className
+      )}
+    >
+      <h2 className="text-accent font-mono font-semibold text-lg">{title}</h2>
+      {children}
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <main className="w-screen h-full p-5 pt-20 pb-20">
       <div className="w-full md:w-200 mx-auto h-full space-y-8">
         <ProfilePicture />
 
-        <div className="flex gap-4 w-full">
-          <Card className="flex-1 border-l-4 border-l-accent">
-            <CardTitle>now</CardTitle>
-            <CardBody>
-              <ul
-                role="list"
-                className="list-disc list-inside ml-1 marker:text-accent"
-              >
-                <li>
-                  lead engineer @
-                  <Link href="https://mistral.ai">Mistral AI</Link>
-                </li>
-              </ul>
-            </CardBody>
-          </Card>
+        {/* Now & Past - side by side */}
+        <div className="flex gap-6 w-full">
+          <div className="flex-1">
+            <Section title="now">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <span>
+                  lead engineer @{" "}
+                  <Link href="https://mistral.ai">mistral ai</Link>
+                </span>
+              </div>
+            </Section>
+          </div>
 
-          <Card className="flex-1">
-            <CardTitle>past</CardTitle>
-            <CardBody>
-              <ul
-                role="list"
-                className="list-disc list-inside ml-1 marker:text-accent"
-              >
-                <li>
-                  founding engineer @
+          <div className="flex-1">
+            <Section title="past">
+              <div className="space-y-2 text-sm">
+                <div>
+                  founding engineer @{" "}
                   <Link href="https://userled.io">userled</Link>
-                </li>
-                <li>
-                  senior backend dev @
-                  <Link href="https://userled.com">paxos</Link>
-                </li>
-
-                <li>
-                  platform engineer @
-                  <Link href="https://www.thoughtmachine.net/">TM</Link>
-                </li>
-
-                <li>
-                  java dev @
+                </div>
+                <div>
+                  senior backend @ <Link href="https://paxos.com">paxos</Link>
+                </div>
+                <div>
+                  platform engineer @{" "}
+                  <Link href="https://www.thoughtmachine.net/">
+                    thought machine
+                  </Link>
+                </div>
+                <div>
+                  java dev @{" "}
                   <Link href="https://www.moogsoft.com/">moogsoft</Link>
-                </li>
-              </ul>
-            </CardBody>
-          </Card>
+                </div>
+              </div>
+            </Section>
+          </div>
         </div>
 
-        <Card>
-          <CardTitle>bio</CardTitle>
-          <CardBody>
-            <p className="mb-4">
+        <Section title="bio">
+          <div className="space-y-4">
+            <p>
               Hello there! I&apos;m a full-stack engineer with 7+ years of
               experience building scalable systems. I work primarily with
-              Golang, Typescript and Python and I&apos;m currently focused on AI
+              Golang, TypeScript and Python and I&apos;m currently focused on AI
               agents, graph systems, and distributed architecture.
             </p>
-            <p>
+            <p className="text-foreground/70">
               Bristol Computer Science graduate, based in London. Active in
               open-source and always learning something new.
             </p>
-          </CardBody>
-        </Card>
-        <Card>
-          <CardTitle>projects</CardTitle>
-          <CardBody>
-            <ul className="space-y-3 list-disc list-inside text-foreground/80 marker:text-accent">
-              <li>
-                <strong className="text-foreground">Summd:</strong> Chrome
-                extension that lets you search and digest YouTube videos because
-                apparently watching them normally wasn&apos;t efficient enough.
-                Built with Vite, React, and the eternal quest for productivity
-                optimization.
-              </li>
-              <li>
-                <strong className="text-foreground">GitNotes:</strong> Automatic
-                release notes generated directly from code changes. Private and
+          </div>
+        </Section>
+
+        <Section title="projects">
+          <div className="grid gap-4">
+            <div className="border-l-2 border-accent/30 pl-4 space-y-1">
+              <h3 className="font-mono text-accent font-medium">summd</h3>
+              <p className="text-sm text-foreground/80">
+                Chrome extension that lets you search and digest YouTube videos.
+                Built with React and OpenAI API because apparently watching
+                videos normally wasn&apos;t efficient enough.
+              </p>
+            </div>
+
+            <div className="border-l-2 border-accent/30 pl-4 space-y-1">
+              <h3 className="font-mono text-accent font-medium">gitnotes</h3>
+              <p className="text-sm text-foreground/80">
+                Automatic release notes generated from code changes. Private and
                 ongoing, like most side projects that started as &apos;just a
                 quick weekend thing&apos; three months ago.
-              </li>
-              <li>
-                <strong className="text-foreground">AI Research Paper:</strong>{" "}
+              </p>
+            </div>
+
+            <div className="border-l-2 border-accent/30 pl-4 space-y-1">
+              <h3 className="font-mono text-accent font-medium">ai research</h3>
+              <p className="text-sm text-foreground/80">
                 Published dissertation on Continual Reinforced Deep Learning.
-                Proof that you can make neural networks learn continuously
-                without forgetting everything they knew before (unlike me with
-                names).
-              </li>
-              <li>
-                <strong className="text-foreground">
-                  Multi-Region SaaS Backend:
-                </strong>{" "}
-                Built at Userled - serves millions of requests daily with
-                Golang, Kafka, and an unhealthy amount of Kubernetes YAML.
-                Features agentic AI constructions and somehow stays running
-                despite my best efforts.
-              </li>
-              <li>
-                <strong className="text-foreground">
-                  Open Source Contributions:
-                </strong>{" "}
-                Very active in the community, contributing to various projects
-                and occasionally fixing bugs I didn&apos;t create (those are the
-                good days).
-              </li>
-            </ul>
-          </CardBody>
-        </Card>
+                Proof that neural networks can learn continuously without
+                forgetting everything (unlike me with names).
+              </p>
+            </div>
+
+            <div className="border-l-2 border-accent/30 pl-4 space-y-1">
+              <h3 className="font-mono text-accent font-medium">
+                userled backend
+              </h3>
+              <p className="text-sm text-foreground/80">
+                Multi-region SaaS platform serving millions of requests daily.
+                Built with Golang, Kafka, and an unhealthy amount of Kubernetes
+                YAML. Somehow stays running despite my best efforts.
+              </p>
+            </div>
+
+            <div className="border-l-2 border-accent/30 pl-4 space-y-1">
+              <h3 className="font-mono text-accent font-medium">open source</h3>
+              <p className="text-sm text-foreground/80">
+                Active contributor to various projects. Occasionally fixing bugs
+                I didn&apos;t create (those are the good days).
+              </p>
+            </div>
+          </div>
+        </Section>
       </div>
     </main>
   );
 }
 
-function CardTitle({ children }: PropsWithChildren) {
-  return <h1 className="font-bold text-xl mb-4 text-accent">{children}</h1>;
-}
-
-function CardBody({ children }: PropsWithChildren) {
-  return <div className="text-foreground/80">{children}</div>;
-}
-
-function Card({
-  children,
-  className,
-}: PropsWithChildren<{ className?: string }>) {
-  return (
-    <div
-      className={cn(
-        "bg-card-background rounded-2xl p-10 border-border border-2 flex justify-start items-start flex-col hover:border-accent/50 transition-colors",
-        className,
-      )}
-    >
-      {children}
-    </div>
-  );
-}
-
 function ProfilePicture() {
   return (
-    <div className="flex items-center gap-6">
-      <div className="w-32 h-32 rounded-full bg-gray-300 ring-2 ring-accent/20">
+    <div className="flex items-center gap-6 bg-card-background/30 rounded-lg p-6 border border-border/20">
+      <div className="w-24 h-24 rounded-lg overflow-hidden ring-1 ring-accent/20">
         <Image
           src="/profile.png"
-          width={128}
-          height={128}
+          width={96}
+          height={96}
           alt="Profile Picture"
-          className="w-full h-full rounded-lg object-cover"
+          className="w-full h-full object-cover"
         />
       </div>
 
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-3xl font-bold">
           martin<span className="text-accent">.dimitrov</span>
         </h1>
         <p className="text-foreground/60 text-lg">
