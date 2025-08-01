@@ -1,35 +1,74 @@
+import { cn } from "@/common/utils";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import { PropsWithChildren } from "react";
+
+function Link({ children, href }: PropsWithChildren<{ href: string }>) {
+  return (
+    <NextLink target="_blank" href={href} className="underline font-medium">
+      {children}
+    </NextLink>
+  );
+}
 
 export default function Home() {
   return (
-    <main className="w-screen h-screen p-5">
-      <div className="w-200 mx-auto h-full space-y-8">
+    <main className="w-screen h-full p-5 pt-20 pb-20">
+      <div className="w-full md:w-200 mx-auto h-full space-y-8">
         <ProfilePicture />
+
+        <div className="flex gap-4 w-full">
+          <Card className="flex-1">
+            <CardTitle>now</CardTitle>
+            <CardBody>
+              <ul role="list" className="list-disc list-inside ml-1">
+                <li>
+                  lead engineer @
+                  <Link href="https://mistral.ai">Mistral AI</Link>
+                </li>
+              </ul>
+            </CardBody>
+          </Card>
+
+          <Card className="flex-1">
+            <CardTitle>past</CardTitle>
+            <CardBody>
+              <ul role="list" className="list-disc list-inside ml-1">
+                <li>
+                  founding engineer @
+                  <Link href="https://userled.io">userled</Link>
+                </li>
+                <li>
+                  senior backend dev @
+                  <Link href="https://userled.com">paxos</Link>
+                </li>
+
+                <li>
+                  platform engineer @
+                  <Link href="https://www.thoughtmachine.net/">TM</Link>
+                </li>
+
+                <li>
+                  java dev @
+                  <Link href="https://www.moogsoft.com/">moogsoft</Link>
+                </li>
+              </ul>
+            </CardBody>
+          </Card>
+        </div>
+
         <Card>
           <CardTitle>bio</CardTitle>
           <CardBody>
             <p className="mb-4">
-              I&apos;m a Founding Engineer at Userled, where I&apos;ve been
-              turning coffee into scalable systems and leading a team of 10
-              engineers to build a SaaS product that somehow achieved $1.5M ARR
-              without breaking too often.
-            </p>
-            <p className="mb-4">
-              With 7+ years of experience across the backend engineering
-              spectrum, I&apos;ve worked everywhere from fintech (Paxos, Thought
-              Machine) to AI infrastructure. I speak fluent Golang, Kubernetes,
-              and PostgreSQL, with a PhD in making distributed systems behave
-              themselves. Currently obsessed with AI agents, graph systems, and
-              convincing microservices to play nicely together.
+              Hello there! I&apos;m a full-stack engineer with 7+ years of
+              experience building scalable systems. I work primarily with
+              Golang, Typescript and Python and I&apos;m currently focused on AI
+              agents, graph systems, and distributed architecture.
             </p>
             <p>
-              Bristol Computer Science graduate with First-Class Honours, though
-              I learned more about debugging from production incidents than any
-              textbook. Based in London, very active in open-source when not
-              explaining why the database is slow again (it&apos;s always the
-              queries).
+              Bristol Computer Science graduate, based in London. Active in
+              open-source and always learning something new.
             </p>
           </CardBody>
         </Card>
@@ -82,9 +121,17 @@ function CardBody({ children }: PropsWithChildren) {
   return <div className="text-foreground/80">{children}</div>;
 }
 
-function Card({ children }: PropsWithChildren) {
+function Card({
+  children,
+  className,
+}: PropsWithChildren<{ className?: string }>) {
   return (
-    <div className="bg-card-background rounded-2xl p-10 border-border border-2 flex justify-start items-start flex-col">
+    <div
+      className={cn(
+        "bg-card-background rounded-2xl p-10 border-border border-2 flex justify-start items-start flex-col",
+        className,
+      )}
+    >
       {children}
     </div>
   );
@@ -106,30 +153,12 @@ function ProfilePicture() {
       <div className="space-y-2">
         <h1 className="text-4xl font-bold">Martin Dimitrov</h1>
         <p className="text-foreground/60 text-lg">
-          founding engineer, system whisperer
+          lead engineer, moustache owner
         </p>
         <div className="flex gap-4 text-sm">
-          <Link
-            target="_blank"
-            href="https://github.com/martin-dimi"
-            className="hover:text-accent transition-colors"
-          >
-            github
-          </Link>
-          <Link
-            target="_blank"
-            href="https://linkedin.com/in/mitchdimitrov"
-            className="hover:text-accent transition-colors"
-          >
-            linkedin
-          </Link>
-          <Link
-            target="_blank"
-            href="mailto:martin.dimi97@gmail.com"
-            className="hover:text-accent transition-colors"
-          >
-            email
-          </Link>
+          <Link href="https://github.com/martin-dimi">github</Link>
+          <Link href="https://linkedin.com/in/mitchdimitrov">linkedin</Link>
+          <Link href="mailto:martin.dimi97@gmail.com">email</Link>
         </div>
       </div>
     </div>
