@@ -1,103 +1,137 @@
 import Image from "next/image";
+import Link from "next/link";
+import { PropsWithChildren } from "react";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="w-screen h-screen p-5">
+      <div className="w-200 mx-auto h-full space-y-8">
+        <ProfilePicture />
+        <Card>
+          <CardTitle>bio</CardTitle>
+          <CardBody>
+            <p className="mb-4">
+              I&apos;m a Founding Engineer at Userled, where I&apos;ve been
+              turning coffee into scalable systems and leading a team of 10
+              engineers to build a SaaS product that somehow achieved $1.5M ARR
+              without breaking too often.
+            </p>
+            <p className="mb-4">
+              With 7+ years of experience across the backend engineering
+              spectrum, I&apos;ve worked everywhere from fintech (Paxos, Thought
+              Machine) to AI infrastructure. I speak fluent Golang, Kubernetes,
+              and PostgreSQL, with a PhD in making distributed systems behave
+              themselves. Currently obsessed with AI agents, graph systems, and
+              convincing microservices to play nicely together.
+            </p>
+            <p>
+              Bristol Computer Science graduate with First-Class Honours, though
+              I learned more about debugging from production incidents than any
+              textbook. Based in London, very active in open-source when not
+              explaining why the database is slow again (it&apos;s always the
+              queries).
+            </p>
+          </CardBody>
+        </Card>
+        <Card>
+          <CardTitle>projects</CardTitle>
+          <CardBody>
+            <ul className="space-y-3 list-disc list-inside text-foreground/80">
+              <li>
+                <strong>Summd:</strong> Chrome extension that lets you search
+                and digest YouTube videos because apparently watching them
+                normally wasn&apos;t efficient enough. Built with Vite, React,
+                and the eternal quest for productivity optimization.
+              </li>
+              <li>
+                <strong>GitNotes:</strong> Automatic release notes generated
+                directly from code changes. Private and ongoing, like most side
+                projects that started as &apos;just a quick weekend thing&apos;
+                three months ago.
+              </li>
+              <li>
+                <strong>AI Research Paper:</strong> Published dissertation on
+                Continual Reinforced Deep Learning. Proof that you can make
+                neural networks learn continuously without forgetting everything
+                they knew before (unlike me with names).
+              </li>
+              <li>
+                <strong>Multi-Region SaaS Backend:</strong> Built at Userled -
+                serves millions of requests daily with Golang, Kafka, and an
+                unhealthy amount of Kubernetes YAML. Features agentic AI
+                constructions and somehow stays running despite my best efforts.
+              </li>
+              <li>
+                <strong>Open Source Contributions:</strong> Very active in the
+                community, contributing to various projects and occasionally
+                fixing bugs I didn&apos;t create (those are the good days).
+              </li>
+            </ul>
+          </CardBody>
+        </Card>
+      </div>
+    </main>
+  );
+}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+function CardTitle({ children }: PropsWithChildren) {
+  return <h1 className="font-bold text-xl mb-4">{children}</h1>;
+}
+
+function CardBody({ children }: PropsWithChildren) {
+  return <div className="text-foreground/80">{children}</div>;
+}
+
+function Card({ children }: PropsWithChildren) {
+  return (
+    <div className="bg-card-background rounded-2xl p-10 border-border border-2 flex justify-start items-start flex-col">
+      {children}
+    </div>
+  );
+}
+
+function ProfilePicture() {
+  return (
+    <div className="flex items-center gap-6">
+      <div className="w-32 h-32 rounded-full bg-gray-300">
+        <Image
+          src="/profile.png"
+          width={128}
+          height={128}
+          alt="Profile Picture"
+          className="w-full h-full rounded-full object-cover"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <h1 className="text-4xl font-bold">Martin Dimitrov</h1>
+        <p className="text-foreground/60 text-lg">
+          founding engineer, system whisperer
+        </p>
+        <div className="flex gap-4 text-sm">
+          <Link
             target="_blank"
-            rel="noopener noreferrer"
+            href="https://github.com/martin-dimi"
+            className="hover:text-accent transition-colors"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            github
+          </Link>
+          <Link
             target="_blank"
-            rel="noopener noreferrer"
+            href="https://linkedin.com/in/mitchdimitrov"
+            className="hover:text-accent transition-colors"
           >
-            Read our docs
-          </a>
+            linkedin
+          </Link>
+          <Link
+            target="_blank"
+            href="mailto:martin.dimi97@gmail.com"
+            className="hover:text-accent transition-colors"
+          >
+            email
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
