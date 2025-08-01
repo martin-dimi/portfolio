@@ -5,7 +5,11 @@ import { PropsWithChildren } from "react";
 
 function Link({ children, href }: PropsWithChildren<{ href: string }>) {
   return (
-    <NextLink target="_blank" href={href} className="underline font-medium">
+    <NextLink
+      target="_blank"
+      href={href}
+      className="underline font-medium hover:text-accent transition-colors"
+    >
       {children}
     </NextLink>
   );
@@ -18,10 +22,13 @@ export default function Home() {
         <ProfilePicture />
 
         <div className="flex gap-4 w-full">
-          <Card className="flex-1">
+          <Card className="flex-1 border-l-4 border-l-accent">
             <CardTitle>now</CardTitle>
             <CardBody>
-              <ul role="list" className="list-disc list-inside ml-1">
+              <ul
+                role="list"
+                className="list-disc list-inside ml-1 marker:text-accent"
+              >
                 <li>
                   lead engineer @
                   <Link href="https://mistral.ai">Mistral AI</Link>
@@ -33,7 +40,10 @@ export default function Home() {
           <Card className="flex-1">
             <CardTitle>past</CardTitle>
             <CardBody>
-              <ul role="list" className="list-disc list-inside ml-1">
+              <ul
+                role="list"
+                className="list-disc list-inside ml-1 marker:text-accent"
+              >
                 <li>
                   founding engineer @
                   <Link href="https://userled.io">userled</Link>
@@ -75,35 +85,43 @@ export default function Home() {
         <Card>
           <CardTitle>projects</CardTitle>
           <CardBody>
-            <ul className="space-y-3 list-disc list-inside text-foreground/80">
+            <ul className="space-y-3 list-disc list-inside text-foreground/80 marker:text-accent">
               <li>
-                <strong>Summd:</strong> Chrome extension that lets you search
-                and digest YouTube videos because apparently watching them
-                normally wasn&apos;t efficient enough. Built with Vite, React,
-                and the eternal quest for productivity optimization.
+                <strong className="text-foreground">Summd:</strong> Chrome
+                extension that lets you search and digest YouTube videos because
+                apparently watching them normally wasn&apos;t efficient enough.
+                Built with Vite, React, and the eternal quest for productivity
+                optimization.
               </li>
               <li>
-                <strong>GitNotes:</strong> Automatic release notes generated
-                directly from code changes. Private and ongoing, like most side
-                projects that started as &apos;just a quick weekend thing&apos;
-                three months ago.
+                <strong className="text-foreground">GitNotes:</strong> Automatic
+                release notes generated directly from code changes. Private and
+                ongoing, like most side projects that started as &apos;just a
+                quick weekend thing&apos; three months ago.
               </li>
               <li>
-                <strong>AI Research Paper:</strong> Published dissertation on
-                Continual Reinforced Deep Learning. Proof that you can make
-                neural networks learn continuously without forgetting everything
-                they knew before (unlike me with names).
+                <strong className="text-foreground">AI Research Paper:</strong>{" "}
+                Published dissertation on Continual Reinforced Deep Learning.
+                Proof that you can make neural networks learn continuously
+                without forgetting everything they knew before (unlike me with
+                names).
               </li>
               <li>
-                <strong>Multi-Region SaaS Backend:</strong> Built at Userled -
-                serves millions of requests daily with Golang, Kafka, and an
-                unhealthy amount of Kubernetes YAML. Features agentic AI
-                constructions and somehow stays running despite my best efforts.
+                <strong className="text-foreground">
+                  Multi-Region SaaS Backend:
+                </strong>{" "}
+                Built at Userled - serves millions of requests daily with
+                Golang, Kafka, and an unhealthy amount of Kubernetes YAML.
+                Features agentic AI constructions and somehow stays running
+                despite my best efforts.
               </li>
               <li>
-                <strong>Open Source Contributions:</strong> Very active in the
-                community, contributing to various projects and occasionally
-                fixing bugs I didn&apos;t create (those are the good days).
+                <strong className="text-foreground">
+                  Open Source Contributions:
+                </strong>{" "}
+                Very active in the community, contributing to various projects
+                and occasionally fixing bugs I didn&apos;t create (those are the
+                good days).
               </li>
             </ul>
           </CardBody>
@@ -114,7 +132,7 @@ export default function Home() {
 }
 
 function CardTitle({ children }: PropsWithChildren) {
-  return <h1 className="font-bold text-xl mb-4">{children}</h1>;
+  return <h1 className="font-bold text-xl mb-4 text-accent">{children}</h1>;
 }
 
 function CardBody({ children }: PropsWithChildren) {
@@ -128,8 +146,8 @@ function Card({
   return (
     <div
       className={cn(
-        "bg-card-background rounded-2xl p-10 border-border border-2 flex justify-start items-start flex-col",
-        className,
+        "bg-card-background rounded-2xl p-10 border-border border-2 flex justify-start items-start flex-col hover:border-accent/50 transition-colors",
+        className
       )}
     >
       {children}
@@ -140,7 +158,7 @@ function Card({
 function ProfilePicture() {
   return (
     <div className="flex items-center gap-6">
-      <div className="w-32 h-32 rounded-full bg-gray-300">
+      <div className="w-32 h-32 rounded-full bg-gray-300 ring-2 ring-accent/20">
         <Image
           src="/profile.png"
           width={128}
@@ -151,7 +169,9 @@ function ProfilePicture() {
       </div>
 
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold">Martin Dimitrov</h1>
+        <h1 className="text-4xl font-bold">
+          Martin <span className="text-accent">Dimitrov</span>
+        </h1>
         <p className="text-foreground/60 text-lg">
           lead engineer, moustache owner
         </p>
