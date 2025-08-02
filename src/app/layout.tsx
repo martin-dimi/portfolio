@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Martin Dimitrov",
   description: "Personal website of Martin Dimitrov the software engineer",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({
