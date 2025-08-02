@@ -66,16 +66,16 @@ export default function Home() {
         <Section title="projects">
           <ul className="list-disc list-inside space-y-2 marker:text-accent">
             <li className="space-y-1">
-              <span className="text-accent">summd</span>
-              <p className="text-sm ml-4">
+              <span className="text-accent font-mono">summd</span>
+              <p className="text-sm ml-3.5">
                 Chrome extension that lets you search and digest YouTube videos
                 with over a 100 customers.
               </p>
             </li>
 
             <li className="space-y-1">
-              <span className="text-accent">ai research</span>
-              <p className="text-sm ml-4">
+              <span className="text-accent font-mono">ai-research</span>
+              <p className="text-sm ml-3.5">
                 Published dissertation on Continual Reinforced Deep Learning.
                 Proof that neural networks can learn continuously without
                 forgetting everything (unlike me with names).
@@ -83,8 +83,8 @@ export default function Home() {
             </li>
 
             <li className="space-y-1">
-              <span className="text-accent">open source</span>
-              <p className="text-sm ml-4">
+              <span className="text-accent font-mono">open-source</span>
+              <p className="text-sm ml-3.5">
                 Active contributor to various projects. Occasionally fixing bugs
                 I didn&apos;t create (those are the good days).
               </p>
@@ -112,11 +112,14 @@ function ProfilePicture() {
       <div className="space-y-2 -mt-3">
         <h1 className="text-4xl font-bold">
           martin<span className="text-accent">.dimitrov</span>
+          <span className="animate-pulse text-accent text-2xl">_</span>
         </h1>
         <p className="text-foreground/60 text-lg">Lead engineer @🤫</p>
-        <div className="flex gap-4 text-sm pt-1 text-foreground/60">
+        <div className="flex gap-2 text-sm pt-1 text-foreground/60 font-mono">
           <Link href="https://github.com/martin-dimi">github</Link>
+          <span className="text-foreground/40">|</span>
           <Link href="https://linkedin.com/in/mitchdimitrov">linkedin</Link>
+          <span className="text-foreground/40">|</span>
           <Link href="mailto:martin.dimi97@gmail.com">email</Link>
         </div>
       </div>
