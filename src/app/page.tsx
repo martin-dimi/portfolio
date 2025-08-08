@@ -14,8 +14,8 @@ export default function Home() {
           <Section title="now" className="flex-1">
             <ul className="space-y-2 list-disc list-inside">
               <li>
-                lead engineer @ 🤫
-                {/* <Link href="https://mistral.ai">mistral.ai</Link> */}
+                lead engineer @{" "}
+                <Link href="https://mistral.ai">mistral.ai</Link>
               </li>
             </ul>
           </Section>
@@ -117,7 +117,12 @@ function ProfilePicture() {
           </span>
         </h1>
         <p className="text-foreground/60 text-base sm:text-lg">
-          Lead engineer @🤫
+          Lead engineer @{" "}
+          <Link href="https://mistral.ai">
+            <span className="underline font-medium hover:text-accent transition-colors">
+              mistral.ai
+            </span>
+          </Link>
         </p>
         <div className="flex flex-wrap gap-2 justify-center sm:justify-start text-sm pt-1 text-foreground/60 font-mono">
           <Link href="https://github.com/martin-dimi">github</Link>
