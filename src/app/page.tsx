@@ -1,4 +1,6 @@
 import { cn } from "@/common/utils";
+import { ConsoleLogs } from "@/common/console-logs";
+import { KonamiCheatCode } from "@/common/konami-cheat-code";
 import Image from "next/image";
 import NextLink from "next/link";
 import { PropsWithChildren } from "react";
@@ -6,6 +8,8 @@ import { PropsWithChildren } from "react";
 export default function Home() {
   return (
     <main className="w-screen h-full p-4 sm:p-5 pt-12 sm:pt-20 pb-12 sm:pb-20">
+      <ConsoleLogs />
+      <KonamiCheatCode />
       <div className="w-full md:w-200 mx-auto h-full space-y-6 sm:space-y-8">
         <ProfilePicture />
 
@@ -45,21 +49,21 @@ export default function Home() {
 
         <Section title="bio">
           <p>
-            Hello there! Welcome to my website! I&apos;m Martin, a software
-            engineer with over 7 years of professional experience building
-            systems across the stack.
+            <HelloThere /> I&apos;m Martin, a senior software engineer with over
+            7 years of experience building and scaling systems across the full
+            stack. I&apos;ve had the privilege of leading engineering teams and
+            architecting solutions that serve millions of users.
             <br />
             <br />
-            I&apos;ve built backend systems, website frameworks and developer
-            tools. These days, I&apos;m particularly focused on AI systems -
-            diving deep into LLMs, RAG architectures, and transformers,
-            exploring how these technologies can solve real problems.
+            My expertise spans backend systems, web applications, and developer
+            tooling. Currently, I&apos;m deep in the AI space, working with
+            LLMs, RAG architectures, and transformer models to solve complex
+            problems at scale.
             <br />
             <br />
-            When I&apos;m not at my day job, you&apos;ll find me building
-            something on the side. Whether it&apos;s experimenting with new
-            frameworks, contributing to open source, or working on projects that
-            scratch my own itch, there&apos;s always something brewing.
+            Outside of work, I contribute to open source projects and build
+            tools that scratch my own itch. Usually involves way too much coffee
+            and questionable commit messages at 2am.
           </p>
         </Section>
 
@@ -96,6 +100,19 @@ export default function Home() {
   );
 }
 
+function HelloThere() {
+  return (
+    <span className="group relative inline-block cursor-pointer">
+      <span className="font-mono text-foreground/70 transition-all duration-300 group-hover:text-accent group-hover:scale-105 inline-block">
+        Hello there!
+      </span>
+      <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-card-background border border-border/40 px-2 py-1 rounded text-xs font-mono text-foreground/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+        General Kenobi! ⚔️
+      </span>
+    </span>
+  );
+}
+
 function ProfilePicture() {
   return (
     <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6">
@@ -106,6 +123,7 @@ function ProfilePicture() {
           height={128}
           alt="Profile Picture"
           className="object-cover w-full h-full scale-125"
+          priority
         />
       </div>
 

@@ -5,17 +5,23 @@ import "./globals.css";
 const rubikSans = Rubik({
   variable: "--font-rubik-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Martin Dimitrov",
   description: "Personal website of Martin Dimitrov the software engineer",
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
