@@ -1,6 +1,3 @@
-"use client";
-
-import { cn } from "@/common/utils";
 import { useEffect, useState } from "react";
 
 export function KonamiCheatCode() {
@@ -45,9 +42,9 @@ export function KonamiCheatCode() {
   return (
     <>
       <div
-        className={cn(
+        className={
           "fixed inset-0 pointer-events-none transition-all duration-500 animate-pulse bg-accent/5"
-        )}
+        }
       />
       <div className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center">
         <div className="text-6xl font-mono text-accent animate-bounce">

@@ -1,0 +1,223 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { ConsoleLogs } from "../components/ConsoleLogs";
+import { KonamiCheatCode } from "../components/KonamiCheatCode";
+import { Image } from "astro:assets";
+import profilePic from "@/images/profile.png";
+---
+
+<Layout title="Martin Dimitrov">
+  <main class="w-screen min-h-screen p-4 sm:p-5 pt-12 sm:pt-20 pb-12 sm:pb-20">
+    <ConsoleLogs client:load />
+    <KonamiCheatCode client:load />
+
+    <div class="w-full md:w-200 mx-auto h-full space-y-6 sm:space-y-8">
+      <!-- Profile Picture Section -->
+      <div
+        class="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6"
+      >
+        <div
+          class="w-24 h-24 sm:w-32 sm:h-32 relative rounded-sm overflow-hidden border-1 border-accent"
+        >
+          <Image
+            src={profilePic}
+            width="256"
+            height="256"
+            alt="Headshot of me"
+            class="object-cover w-full h-full scale-125"
+          />
+        </div>
+
+        <div class="space-y-2 -mt-0 sm:-mt-3 text-center sm:text-left">
+          <h1 class="text-2xl sm:text-4xl font-bold">
+            martin<span class="text-accent">.dimitrov</span><span
+              class="animate-pulse text-accent text-lg sm:text-2xl">_</span
+            >
+          </h1>
+          <p class="text-foreground/60 text-base sm:text-lg">
+            Lead engineer @{" "}
+            <a
+              href="https://mistral.ai"
+              target="_blank"
+              class="underline font-medium hover:text-accent transition-colors"
+            >
+              mistral.ai
+            </a>
+          </p>
+          <div
+            class="flex flex-wrap gap-2 justify-center sm:justify-start text-sm pt-1 text-foreground/60 font-mono"
+          >
+            <a
+              href="https://github.com/martin-dimi"
+              target="_blank"
+              class="underline font-medium hover:text-accent transition-colors"
+            >
+              github
+            </a>
+            <span class="text-foreground/40">|</span>
+            <a
+              href="https://linkedin.com/in/mitchdimitrov"
+              target="_blank"
+              class="underline font-medium hover:text-accent transition-colors"
+            >
+              linkedin
+            </a>
+            <span class="text-foreground/40">|</span>
+            <a
+              href="mailto:martin.dimi97@gmail.com"
+              target="_blank"
+              class="underline font-medium hover:text-accent transition-colors"
+            >
+              email
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Now & Past Section -->
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full">
+        <section
+          class="flex-1 space-y-3 sm:space-y-4 bg-card-background/30 rounded-lg p-4 sm:p-6 border border-border/20"
+        >
+          <h2 class="text-accent font-mono font-semibold text-base sm:text-lg">
+            now
+          </h2>
+          <ul class="space-y-2 list-disc list-inside">
+            <li>
+              lead engineer @{" "}
+              <a
+                href="https://mistral.ai"
+                target="_blank"
+                class="underline font-medium hover:text-accent transition-colors"
+              >
+                mistral.ai
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section
+          class="flex-1 space-y-3 sm:space-y-4 bg-card-background/30 rounded-lg p-4 sm:p-6 border border-border/20"
+        >
+          <h2 class="text-accent font-mono font-semibold text-base sm:text-lg">
+            past
+          </h2>
+          <ul class="space-y-2 list-disc list-inside">
+            <li>
+              founding engineer @{" "}
+              <a
+                href="https://userled.io"
+                target="_blank"
+                class="underline font-medium hover:text-accent transition-colors"
+              >
+                userled
+              </a>
+            </li>
+            <li>
+              senior backend @{" "}
+              <a
+                href="https://paxos.com"
+                target="_blank"
+                class="underline font-medium hover:text-accent transition-colors"
+              >
+                paxos
+              </a>
+            </li>
+            <li>
+              platform engineer @{" "}
+              <a
+                href="https://www.thoughtmachine.net/"
+                target="_blank"
+                class="underline font-medium hover:text-accent transition-colors"
+              >
+                thought machine
+              </a>
+            </li>
+            <li>
+              java dev @{" "}
+              <a
+                href="https://www.moogsoft.com/"
+                target="_blank"
+                class="underline font-medium hover:text-accent transition-colors"
+              >
+                moogsoft
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Bio Section -->
+      <section
+        class="space-y-3 sm:space-y-4 bg-card-background/30 rounded-lg p-4 sm:p-6 border border-border/20"
+      >
+        <h2 class="text-accent font-mono font-semibold text-base sm:text-lg">
+          bio
+        </h2>
+        <p>
+          <span class="group relative inline-block cursor-pointer">
+            <span
+              class="font-mono text-foreground/70 transition-all duration-300 group-hover:text-accent group-hover:scale-105 inline-block"
+            >
+              Hello there!
+            </span>
+            <span
+              class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-card-background border border-border/40 px-2 py-1 rounded text-xs font-mono text-foreground/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap"
+            >
+              General Kenobi! ⚔️
+            </span>
+          </span>
+          {" "}I'm Martin, a senior software engineer with over 7 years of
+          experience building and scaling systems across the full stack. I've
+          had the privilege of leading engineering teams and architecting
+          solutions that serve millions of users.
+          <br />
+          <br />
+          My expertise spans backend systems, web applications, and developer tooling.
+          Currently, I'm deep in the AI space, working with LLMs, RAG architectures,
+          and transformer models to solve complex problems at scale.
+          <br />
+          <br />
+          Outside of work, I contribute to open source projects and build tools that
+          scratch my own itch. Usually involves way too much coffee and questionable
+          commit messages at 2am.
+        </p>
+      </section>
+
+      <!-- Projects Section -->
+      <section
+        class="space-y-3 sm:space-y-4 bg-card-background/30 rounded-lg p-4 sm:p-6 border border-border/20"
+      >
+        <h2 class="text-accent font-mono font-semibold text-base sm:text-lg">
+          projects
+        </h2>
+        <ul class="list-disc list-inside space-y-2 marker:text-accent">
+          <li class="space-y-1">
+            <span class="text-accent font-mono">summd</span>
+            <p class="text-sm ml-3.5">
+              Chrome extension that lets you search and digest YouTube videos
+              with over a 100 customers.
+            </p>
+          </li>
+
+          <li class="space-y-1">
+            <span class="text-accent font-mono">ai-research</span>
+            <p class="text-sm ml-3.5">
+              Published dissertation on Continual Reinforced Deep Learning.
+              Proof that neural networks can learn continuously without
+              forgetting everything (unlike me with names).
+            </p>
+          </li>
+
+          <li class="space-y-1">
+            <span class="text-accent font-mono">open-source</span>
+            <p class="text-sm ml-3.5">
+              Active contributor to various projects. Occasionally fixing bugs I
+              didn't create (those are the good days).
+            </p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Fonts */
+  --font-sans: var(--font-rubik-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Colors */
+  --color-background: var(--background);
+  --color-card-background: var(--card-background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --background: oklch(0.2427 0.0063 314.7);
+  --card-background: oklch(0.2887 0.0077 308.16);
+  --foreground: oklch(0.9905 0.0026 106.45);
+  --border: oklch(0.211 0.0042 308.24);
+  --accent: #ff6188;
+
+  --font-rubik-sans: "Rubik", Arial, Helvetica, sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-rubik-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+}
