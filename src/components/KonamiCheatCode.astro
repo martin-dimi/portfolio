@@ -1,0 +1,56 @@
+---
+---
+
+<div id="konami-overlay" class="fixed inset-0 pointer-events-none transition-all duration-500 animate-pulse bg-accent/5 opacity-0"></div>
+<div id="konami-message" class="fixed inset-0 pointer-events-none z-50 flex items-center justify-center opacity-0">
+  <div class="text-6xl font-mono text-accent animate-bounce">
+    🎮 30 LIVES! 🎮
+  </div>
+</div>
+
+<script>
+  let konamiActivated = false;
+  const konamiCode = [
+    "ArrowUp",
+    "ArrowUp", 
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "KeyB",
+    "KeyA",
+  ];
+  let konamiIndex = 0;
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.code === konamiCode[konamiIndex]) {
+      konamiIndex++;
+      if (konamiIndex === konamiCode.length) {
+        konamiActivated = true;
+        console.log("🎮 KONAMI CODE ACTIVATED! 30 lives granted!");
+        
+        const overlay = document.getElementById('konami-overlay');
+        const message = document.getElementById('konami-message');
+        
+        if (overlay && message) {
+          overlay.style.opacity = '1';
+          message.style.opacity = '1';
+          
+          setTimeout(() => {
+            overlay.style.opacity = '0';
+            message.style.opacity = '0';
+            konamiActivated = false;
+          }, 3000);
+        }
+        
+        konamiIndex = 0;
+      }
+    } else {
+      konamiIndex = 0;
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+</script>
