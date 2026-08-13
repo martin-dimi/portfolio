@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import ConsoleLogs from "../components/ConsoleLogs.astro";
 import KonamiCheatCode from "../components/KonamiCheatCode.astro";
 import { Image } from "astro:assets";
-import profilePic from "@/images/profile.png";
+import profilePic from "@/images/profile-2.jpeg";
 ---
 
 <Layout title="Martin Dimitrov">
@@ -21,10 +21,10 @@ import profilePic from "@/images/profile.png";
         >
           <Image
             src={profilePic}
-            width="256"
-            height="256"
+            width="512"
+            height="512"
             alt="Headshot of me"
-            class="object-cover w-full h-full scale-125"
+            class="object-cover w-full h-full scale-150"
           />
         </div>
 
@@ -167,13 +167,13 @@ import profilePic from "@/images/profile.png";
               General Kenobi! ⚔️
             </span>
           </span>
-          {" "}I'm Martin, a senior software engineer with over 7 years of
+          {" "}I'm Martin, a senior software engineer with over 8 years of
           experience building and scaling systems across the full stack. I've
           had the privilege of leading engineering teams and architecting
           solutions that serve millions of users.
           <br />
           <br />
-          My expertise spans backend systems, web applications, and developer tooling.
+          My expertise spans backend systems, web applications and developer tooling.
           Currently, I'm deep in the AI space, working with LLMs, RAG architectures,
           and transformer models to solve complex problems at scale.
           <br />
@@ -206,68 +206,96 @@ import profilePic from "@/images/profile.png";
               Context-aware AI moderation for Twitch chat. Catches creepy
               comments, ragebait and backseat gaming - the stuff keyword filters
               can't.
+              <br />
+              <span class="text-foreground/60 text-sm">
+                Uses a mix of demultiplexed LLM-judge + similarity search
+                techniques over text/video/audio to flag messages in under
+                500ms. Built to support thousands of concurrent messages per
+                second.
+              </span>
             </p>
           </li>
 
           <li class="space-y-1">
             <span class="text-accent font-mono">
               <a
-                href="https://apps.apple.com/us/app/sidequest-polaroid-diary/id6766077589"
+                href="https://apps.apple.com/us/app/yap-voice-journal-diary/id6789624503"
                 target="_blank"
                 class="underline font-medium hover:text-accent transition-colors"
               >
-                Sidequest
+                Yap <span class="text-xs">(apple review atm)</span>
               </a>
             </span>
             <p class="text-sm ml-3.5">
-              iOS app. 52 weeks, 52 polaroids - a weekly challenge that dares
-              you to do one thing worth photographing, so your year doesn't blur
-              past.
+              Voice journaling that sorts your thoughts. (RN)
+              <br />
+              <span class="text-foreground/60 text-sm">
+                Uses on-device transcription models + self-deployed 8B models to
+                organise your journal. Built for privacy and speed, with no
+                cloud storage or third-party tracking.
+              </span>
             </p>
-          </li>
 
-          <li class="space-y-1">
-            <span class="text-accent font-mono">
-              <a
-                href="https://summd.app"
-                target="_blank"
-                class="underline font-medium hover:text-accent transition-colors"
-              >
-                Summd
-              </a>
-            </span>
-            <p class="text-sm ml-3.5">
-              Chrome extension that lets you search and digest YouTube videos
-              with over a 100 customers.
-            </p>
-          </li>
+            <li class="space-y-1">
+              <span class="text-accent font-mono">
+                <a
+                  href="https://apps.apple.com/us/app/sidequest-polaroid-diary/id6766077589"
+                  target="_blank"
+                  class="underline font-medium hover:text-accent transition-colors"
+                >
+                  Sidequest
+                </a>
+              </span>
+              <p class="text-sm ml-3.5">
+                iOS app. 52 weeks, 52 polaroids - a weekly challenge that dares
+                you to do one thing worth photographing, so your year doesn't
+                blur past. (RN)
+              </p>
+            </li>
 
-          <li class="space-y-1">
-            <span class="text-accent font-mono">Pledge</span>
-            <p class="text-sm ml-3.5">
-              Apple shut this one down.. <span class="line-through"
-                >iOS app. Put your money where your scroll is. Locks the apps
-                you can't stop opening and forfeits your cash when you go over
-                the daily budget.</span
-              >
-            </p>
-          </li>
+            <li class="space-y-1">
+              <span class="text-accent font-mono">
+                <a
+                  href="https://summd.app"
+                  target="_blank"
+                  class="underline font-medium hover:text-accent transition-colors"
+                >
+                  Summd
+                </a>
+              </span>
+              <p class="text-sm ml-3.5">
+                Chrome extension that lets you search and digest YouTube videos
+                with over a 100 customers.
+              </p>
+            </li>
 
-          <li class="space-y-1">
-            <span class="text-accent font-mono">ai-research</span>
-            <p class="text-sm ml-3.5">
-              Published dissertation on Continual Reinforced Deep Learning.
-              Proof that neural networks can learn continuously without
-              forgetting everything (unlike me with names).
-            </p>
-          </li>
+            <li class="space-y-1">
+              <span class="text-accent font-mono">Pledge</span>
+              <p class="text-sm ml-3.5">
+                Apple shut this one down.. <span class="line-through"
+                  >iOS app. Put your money where your scroll is. Locks the apps
+                  you can't stop opening and forfeits your cash when you go over
+                  the daily budget.</span
+                >
+              </p>
+            </li>
 
-          <li class="space-y-1">
-            <span class="text-accent font-mono">open-source</span>
-            <p class="text-sm ml-3.5">
-              Active contributor to various projects. Occasionally fixing bugs I
-              didn't create (those are the good days).
-            </p>
+            <li class="space-y-1">
+              <span class="text-accent font-mono">ai-research</span>
+              <p class="text-sm ml-3.5">
+                Published dissertation on Continual Reinforced Deep Learning.
+                Proof that neural networks can learn continuously without
+                forgetting everything (unlike me with names).
+              </p>
+            </li>
+
+            <li class="space-y-1">
+              <span class="text-accent font-mono">open-source</span>
+              <p class="text-sm ml-3.5">
+                Active contributor to various projects. Occasionally fixing bugs
+                I didn't create (those are the good days).
+              </p>
+            </li>
           </li>
         </ul>
       </section>
